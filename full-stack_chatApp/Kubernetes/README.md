@@ -26,8 +26,11 @@ The application was containerized and deployed on a Kubernetes cluster with prop
 * Configured environment variables for MongoDB connectivity
 * Exposed backend using Kubernetes Service
 
-3. Database Tier (MongoDB)
+### 3. Database Tier (MongoDB)
 * Used official MongoDB container image
 * Created Deployment for MongoDB
 * Created Service for internal communication
 * Attached persistent storage using PV and PVC
+
+
+
