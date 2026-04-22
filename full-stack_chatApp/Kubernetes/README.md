@@ -3,9 +3,9 @@
 ## Project Overview
 This project demonstrates the deployment of a three-tier chat application on Kubernetes using a microservices-based architecture. The application consists of:
 
-Frontend – User interface for interacting with the chat application
-Backend – API layer handling authentication, messaging, and business logic
-MongoDB – Database layer for storing users, messages, and application data
+* Frontend – User interface for interacting with the chat application
+* Backend – API layer handling authentication, messaging, and business logic
+* MongoDB – Database layer for storing users, messages, and application data
 
 The application was containerized and deployed on a Kubernetes cluster with proper networking and persistent storage. Below image shows the flow of deployment followed for the chat application:
 
