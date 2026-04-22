@@ -114,13 +114,13 @@ kubectl apply -f .
 
 ### Step 5
 
-Created an Nginx Ingress resource to expose the application externally using a custom hostname. The host used was **chat-tws.com**. The routing rules defined in Ingress manifest were **/** for **frontend** and **/api** for **backend**. Ingress provided a single entry point and helps route HTTP/HTTPS traffic to services deployed for the application. To enable Nginx Ingress COntroller on Minikube I had to use an additional command shared below:
+Created an Nginx Ingress resource to expose the application externally using a custom hostname. The host used was **chat-tws.com**. The routing rules defined in Ingress manifest were **/** for **frontend** and **/api** for **backend**. Ingress provided a single entry point and helps route HTTP/HTTPS traffic to services deployed for the application. To enable Nginx Ingress Controller on Minikube I had to use an additional command shared below:
 
 ```
 minikube addons enable ingress
 ```
 
-To verify access to application using a web browser on my local machine I used **kubectl port-forward** which is used to temporarily expose a Kubernetes pod or service to a local machine without changing service types or creating external access resources. The **kubectl port-forward** command used i shared below. I had also created custom host entry in local hosts file found on path **C:\Windows\System32\drivers\etc\hosts** as shown in screenshot below:
+To verify access to application using a web browser on my local machine I used **kubectl port-forward** which is used to temporarily expose a Kubernetes pod or service to a local machine without changing service types or creating external access resources. The **kubectl port-forward** command used i shared below. I had also created custom host entry where I had mapped my Vagrant VMs IP to the host name defined in Ingress Resource manifest in local hosts file found on path **C:\Windows\System32\drivers\etc\hosts** as shown in screenshot below:
 
 ```
 kubectl port-forward --address 0.0.0.0 -n ingress-nginx service/ingress-nginx-controller 8080:80 &
