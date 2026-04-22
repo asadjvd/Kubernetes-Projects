@@ -43,8 +43,10 @@ The application was containerized and deployed on a Kubernetes cluster with prop
 We will create and push Docker images from the already provided Dockerfiles to repositories created on Docker Hub. Below commands will be used:
 
 ```
+cd /Kubernetes-Projects/full-stack_chatApp/backend
 docker build -t asadjvd/chatapp-backend:latest .
 docker push asadjvd/chatapp-backend:latest
+cd /Kubernetes-Projects/full-stack_chatApp/frontend
 docker build -t asadjvd/chatapp-frontend:latest .
 docker push asadjvd/chatapp-backend:latest
 ```
@@ -58,6 +60,7 @@ docker push asadjvd/chatapp-backend:latest
 To carry out deployment of chat application on Kubernetes, I had made use of Minikube. Once Minikube is up and running we will start with the deployment. First step I had carried out was to create a namespace where we would deploy all our Kubernetes resources. The Kubernetes manifests are present in directory Kubernetes-Projects/full-stack_chatApp/Kubernetes/. Below is the command and screenshot:
 
 ```
+cd /Kubernetes-Projects/full-stack_chatApp/Kubernetes
 kubectl apply -f namespace.yml
 ```
 
@@ -86,7 +89,21 @@ kubectl apply -f mongodb-pv.yml
 
 ### Step 4
 
+Once PV and PVC are deployed, we deploy the frontend, backend, mongodb deployments and services with a single command shared below along with the screenshot of all the resources manifests used:
 
+```
+cd /Kubernetes-Projects/full-stack_chatApp/Kubernetes
+kubectl apply -f .
+```
 
+![Frontend-Deployment](Image/frontend-deployment.PNG)
 
+![Backend-Deployment](Image/backend-deployment.PNG)
 
+![MongoDB-Deployment](Image/mongodb-deployment.PNG)
+
+![Frontend-Service](Image/frontend-service.PNG)
+
+![Backend-Service](Image/backend-service.PNG)
+
+![MongoDB-Service](Image/mongodb-service.PNG)
