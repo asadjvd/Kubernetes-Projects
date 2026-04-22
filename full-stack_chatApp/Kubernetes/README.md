@@ -89,7 +89,7 @@ kubectl apply -f mongodb-pv.yml
 
 ### Step 4
 
-Once PV and PVC are deployed, we deploy the frontend, backend, mongodb deployments and services with a single command shared below along with the screenshot of all the resources manifests used:
+Once PV and PVC are deployed, we deploy the frontend, backend, mongodb deployments and services with a single command shared below along with the screenshot of all the resources manifests used. The deployments for each component would be used to manage pods and deployments provide benefits such as easy to scale, pods self-healing and rolling updates. Backend service was deployed as the nginx.conf file in frontend had a location (/api) that had a dependancy of backend service at 5001 port. Frontend service was deployed to ensure internal access to frontend pods. MongoDB service was deployed to provide a stable DNS name for DB connectivity. 
 
 ```
 cd /Kubernetes-Projects/full-stack_chatApp/Kubernetes
@@ -107,3 +107,71 @@ kubectl apply -f .
 ![Backend-Service](Image/backend-service.PNG)
 
 ![MongoDB-Service](Image/mongodb-service.PNG)
+
+![Backend-Secret](Image/secrets.PNG)
+
+---
+
+### Step 5
+
+Created an Nginx Ingress resource to expose the application externally using a custom hostname. The host used was **chat-tws.com**. The routing rules defined in Ingress manifest were **/** for **frontend** and **/api** for **backend**. Ingress provided a single entry point and helps route HTTP/HTTPS traffic to services deployed for the application. To enable Nginx Ingress COntroller on Minikube I had to use an additional command shared below:
+
+```
+minikube addons enable ingress
+```
+
+To verify access to application using a web browser on my local machine I used **kubectl port-forward** which is used to temporarily expose a Kubernetes pod or service to a local machine without changing service types or creating external access resources. The **kubectl port-forward** command used i shared below. I had also created custom host entry in local hosts file found on path **C:\Windows\System32\drivers\etc\hosts** as shown in screenshot below:
+
+```
+kubectl port-forward --address 0.0.0.0 -n ingress-nginx service/ingress-nginx-controller 8080:80 &
+```
+
+![Hosts-Entry](Image/hosts-file.PNG)
+
+Below is the screenshot of the Nginx Ingress resource that has rules for path-based routing defined in manifest:
+
+![Nginx-Ingress-Resource](Image/chat-ingress.PNG)
+
+---
+
+### Step 6
+
+To validate all the deployed Kubernetes resources were working properly and not throwing errors I used command as shared in screenshot:
+
+![Deployed-Kubernetes-Objects](Image/deploy1.PNG)
+
+![Deployed-Nginx-Resources](Image/deploy3.PNG)
+
+To verify the frontend UI was accessible I used **http://chat-tws.com:8080** to access it as shown in screenshot below:
+
+![Chat-App-Login-UI](Image/chat-app-login-ui.PNG)
+
+![Chat-App-Sign-Up-UI](Image/chat-app-sign-up-ui.PNG)
+
+![Chat-App-UI](Image/chat-app-ui.PNG)
+
+---
+
+## Skills Demonstrated
+
+* Docker containerization
+* Kubernetes Deployments and Services
+* Ingress Controller configuration
+* Path-based routing
+* Persistent storage (PV/PVC)
+* Kubernetes DNS troubleshooting
+* Full-stack microservices deployment
+
+---
+
+## Outcome
+
+Successfully deployed a three-tier chat application on Kubernetes with:
+
+* Scalable frontend/backend services
+* Persistent MongoDB storage
+* Internal service discovery
+* External access through Ingress
+* Production-style routing architecture
+
+---
