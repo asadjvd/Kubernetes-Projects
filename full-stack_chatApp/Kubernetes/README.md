@@ -72,7 +72,7 @@ kubectl apply -f namespace.yml
 
 ### Step 3 
 
-Created Persistent Volume (PV) and Persistent Volume Claim (PVC) and then mounted them to MongoDB container for durable storage. Without persistent storage MongoDB data would be lost if pod restarts. By having PV and PVC we would ensure database data survives incase a pod gets recreated. Below are the commands used to create PV and PVC ane the screenshots of the manifests used to create them:
+Created Persistent Volume (PV) and Persistent Volume Claim (PVC) and then mounted them to MongoDB container for durable storage. Without persistent storage MongoDB data would be lost if pod restarts. By having PV and PVC we would ensure database data survives incase a pod gets recreated. Below are the commands used to create PV and PVC and the screenshots of the manifests used to create them:
 
 ```
 kubectl apply -f mongodb-pv.yml
@@ -89,7 +89,7 @@ kubectl apply -f mongodb-pv.yml
 
 ### Step 4
 
-Once PV and PVC are deployed, we deploy the frontend, backend, mongodb deployments and services with a single command shared below along with the screenshot of all the resources manifests used. The deployments for each component would be used to manage pods and deployments provide benefits such as easy to scale, pods self-healing and rolling updates. Backend service was deployed as the nginx.conf file in frontend had a location (/api) that had a dependancy of backend service at 5001 port. Frontend service was deployed to ensure internal access to frontend pods. MongoDB service was deployed to provide a stable DNS name for DB connectivity. 
+Once PV and PVC are deployed, we deploy the frontend, backend, mongodb deployments and services with a single command shared below along with the screenshot of all the resources manifests used. The deployments for each component would be used to manage pods and deployments provide benefits such as easy to scale, pods self-healing and rolling updates. Backend service was deployed as the nginx.conf file in frontend had a location (/api) that had a dependency of backend service at 5001 port. Frontend service was deployed to ensure internal access to frontend pods. MongoDB service was deployed to provide a stable DNS name for DB connectivity. 
 
 ```
 cd /Kubernetes-Projects/full-stack_chatApp/Kubernetes
@@ -114,13 +114,13 @@ kubectl apply -f .
 
 ### Step 5
 
-Created an Nginx Ingress resource to expose the application externally using a custom hostname. The host used was **chat-tws.com**. The routing rules defined in Ingress manifest were **/** for **frontend** and **/api** for **backend**. Ingress provided a single entry point and helps route HTTP/HTTPS traffic to services deployed for the application. To enable Nginx Ingress Controller on Minikube I had to use an additional command shared below:
+Created an Nginx Ingress resource to expose the application externally using a custom hostname. The host used was **chat-tws.com**. The routing rules defined in Ingress manifest were **/** for **frontend** and **/api** for **backend**. Ingress provides a single entry point and helps route HTTP/HTTPS traffic to services deployed for the application. To enable Nginx Ingress Controller on Minikube I had to use an additional command shared below:
 
 ```
 minikube addons enable ingress
 ```
 
-To verify access to application using a web browser on my local machine I used **kubectl port-forward** which is used to temporarily expose a Kubernetes pod or service to a local machine without changing service types or creating external access resources. The **kubectl port-forward** command used i shared below. I had also created custom host entry where I had mapped my Vagrant VMs IP to the host name defined in Ingress Resource manifest in local hosts file found on path **C:\Windows\System32\drivers\etc\hosts** as shown in screenshot below:
+To verify access to application using a web browser on my local machine I used **kubectl port-forward** which is used to temporarily expose a Kubernetes pod or service to a local machine without changing service types or creating external access resources. The **kubectl port-forward** command used is shared below. I had also created custom host entry in local hosts file found on path **C:\Windows\System32\drivers\etc\hosts** where I had mapped my VMs IP to the host name defined in Ingress Resource manifest as shown in screenshot below:
 
 ```
 kubectl port-forward --address 0.0.0.0 -n ingress-nginx service/ingress-nginx-controller 8080:80 &
