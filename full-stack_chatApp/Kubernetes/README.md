@@ -6,10 +6,13 @@
 
 ### **Table of Contents**
 - [Project Overview](#1-project-overview)
-
+- [Components Deployed](#2-components-deployed)
+  - [Frontend Tier](#1-frontend-tier)
+  - [Backend Tier](#2-backend-tier)
+  - [Database Tier (MongoDB)](#3-database-tier)
 ---
 
-## Project Overview
+### **1. Project Overview**
 This project demonstrates the deployment of a three-tier chat application on Kubernetes using a microservices-based architecture. The application consists of:
 
 * Frontend – User interface for interacting with the chat application
@@ -22,22 +25,22 @@ The application was containerized and deployed on a Kubernetes cluster with prop
 
 ---
 
-## Components Deployed
+### **2. Components Deployed**
 
-### 1. Frontend Tier
+#### 1. Frontend Tier
 * Built Docker image for frontend application
 * Pushed image to Docker Hub
 * Created Kubernetes Deployment
 * Exposed application internally using Service
 
-### 2. Backend Tier
+#### 2. Backend Tier
 * Built Docker image for backend API
 * Pushed image to Docker Hub
 * Created Kubernetes Deployment
 * Configured environment variables for MongoDB connectivity
 * Exposed backend using Kubernetes Service
 
-### 3. Database Tier (MongoDB)
+#### 3. Database Tier (MongoDB)
 * Used official MongoDB container image
 * Created Deployment for MongoDB
 * Created Service for internal communication
@@ -47,7 +50,7 @@ The application was containerized and deployed on a Kubernetes cluster with prop
 
 ## Deployment Steps with Screenshots
 
-### Step 1
+#### Step 1
 
 We will create and push Docker images from the already provided Dockerfiles to repositories created on Docker Hub. Below commands will be used:
 
