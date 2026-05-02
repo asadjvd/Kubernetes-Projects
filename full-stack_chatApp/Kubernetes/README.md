@@ -197,5 +197,3 @@ Successfully deployed a three-tier chat application on Kubernetes with:
 * Production-style routing architecture
 
 ---
-
----
