@@ -1,4 +1,4 @@
-# Three-Tier Chat Application Deployment on Kubernetes
+## Three-Tier Chat Application Deployment on Kubernetes
 
 ---
 
