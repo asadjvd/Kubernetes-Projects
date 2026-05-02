@@ -9,7 +9,7 @@
 - [Components Deployed](#2-components-deployed)
   - [Frontend Tier](#1-frontend-tier)
   - [Backend Tier](#2-backend-tier)
-  - [Database Tier (MongoDB)](#3-database-tier)
+  - [Database Tier (MongoDB)](#3-database-tier-mongo-db)
 ---
 
 ### **1. Project Overview**
