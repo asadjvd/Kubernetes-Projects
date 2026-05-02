@@ -52,7 +52,7 @@ The application was containerized and deployed on a Kubernetes cluster with prop
 
 ---
 
-## Deployment Steps with Screenshots
+### 3. Deployment Steps with Screenshots
 
 #### Step 1
 
