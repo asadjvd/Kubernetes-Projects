@@ -1,5 +1,14 @@
 # Three-Tier Chat Application Deployment on Kubernetes
 
+---
+
+---
+
+### **Table of Contents**
+- [Project Overview](#1-project-overview)
+
+---
+
 ## Project Overview
 This project demonstrates the deployment of a three-tier chat application on Kubernetes using a microservices-based architecture. The application consists of:
 
