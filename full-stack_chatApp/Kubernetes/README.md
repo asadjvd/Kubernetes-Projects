@@ -2,8 +2,6 @@
 
 ---
 
----
-
 ### **Table of Contents**
 - [Project Overview](#1-project-overview)
 - [Components Deployed](#2-components-deployed)
@@ -13,7 +11,13 @@
 - [Deployment Steps with Screenshots](#3-deployment-steps-with-screenshots)
   - [Step 1](#1-step-1)
   - [Step 2](#2-step-2)
- 
+  - [Step 3](#3-step-3)
+  - [Step 4](#4-step-4)
+  - [Step 5](#5-step-5)
+  - [Step 6](#6-step-6)
+- [Skills Demonstrated](#4-skills-demonstrated)
+- [Outcome](#5-outcome)
+
 ---
 
 ### **1. Project Overview**
@@ -52,9 +56,11 @@ The application was containerized and deployed on a Kubernetes cluster with prop
 
 ---
 
-### 3. Deployment Steps with Screenshots
+### **3. Deployment Steps with Screenshots**
 
-#### Step 1
+---
+
+#### 1. Step 1
 
 We will create and push Docker images from the already provided Dockerfiles to repositories created on Docker Hub. Below commands will be used:
 
@@ -71,7 +77,7 @@ docker push asadjvd/chatapp-backend:latest
 
 ---
 
-### Step 2 
+#### 2. Step 2 
 
 To carry out deployment of chat application on Kubernetes, I had made use of Minikube. Once Minikube is up and running we will start with the deployment. First step I had carried out was to create a namespace where we would deploy all our Kubernetes resources. The Kubernetes manifests are present in directory Kubernetes-Projects/full-stack_chatApp/Kubernetes/. Below is the command and screenshot:
 
@@ -86,7 +92,7 @@ kubectl apply -f namespace.yml
 
 ---
 
-### Step 3 
+#### 3. Step 3 
 
 Created Persistent Volume (PV) and Persistent Volume Claim (PVC) and then mounted them to MongoDB container for durable storage. Without persistent storage MongoDB data would be lost if pod restarts. By having PV and PVC we would ensure database data survives incase a pod gets recreated. Below are the commands used to create PV and PVC and the screenshots of the manifests used to create them:
 
@@ -103,7 +109,7 @@ kubectl apply -f mongodb-pv.yml
 
 ---
 
-### Step 4
+#### 4. Step 4
 
 Once PV and PVC are deployed, we deploy the frontend, backend, mongodb deployments and services with a single command shared below along with the screenshot of all the resources manifests used. The deployments for each component would be used to manage pods and deployments provide benefits such as easy to scale, pods self-healing and rolling updates. Backend service was deployed as the nginx.conf file in frontend had a location (/api) that had a dependency of backend service at 5001 port. Frontend service was deployed to ensure internal access to frontend pods. MongoDB service was deployed to provide a stable DNS name for DB connectivity. 
 
@@ -128,7 +134,7 @@ kubectl apply -f .
 
 ---
 
-### Step 5
+#### 5. Step 5
 
 Created an Nginx Ingress resource to expose the application externally using a custom hostname. The host used was **chat-tws.com**. The routing rules defined in Ingress manifest were **/** for **frontend** and **/api** for **backend**. Ingress provides a single entry point and helps route HTTP/HTTPS traffic to services deployed for the application. To enable Nginx Ingress Controller on Minikube I had to use an additional command shared below:
 
@@ -150,7 +156,7 @@ Below is the screenshot of the Nginx Ingress resource that has rules for path-ba
 
 ---
 
-### Step 6
+#### 6. Step 6
 
 To validate all the deployed Kubernetes resources were working properly and not throwing errors I used command as shared in screenshot:
 
@@ -168,7 +174,7 @@ To verify the frontend UI was accessible I used **http://chat-tws.com:8080** to 
 
 ---
 
-## Skills Demonstrated
+### **4. Skills Demonstrated**
 
 * Docker containerization
 * Kubernetes Deployments and Services
@@ -180,7 +186,7 @@ To verify the frontend UI was accessible I used **http://chat-tws.com:8080** to 
 
 ---
 
-## Outcome
+### **5. Outcome**
 
 Successfully deployed a three-tier chat application on Kubernetes with:
 
@@ -189,5 +195,7 @@ Successfully deployed a three-tier chat application on Kubernetes with:
 * Internal service discovery
 * External access through Ingress
 * Production-style routing architecture
+
+---
 
 ---
