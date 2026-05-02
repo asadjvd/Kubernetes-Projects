@@ -10,6 +10,10 @@
   - [Frontend Tier](#1-frontend-tier)
   - [Backend Tier](#2-backend-tier)
   - [Database Tier](#3-database-tier)
+- [Deployment Steps with Screenshots](#3-deployment-steps-with-screenshots)
+  - [Step 1](#1-step-1)
+  - [Step 2](#2-step-2)
+ 
 ---
 
 ### **1. Project Overview**
