@@ -115,7 +115,7 @@ kubectl get svc
 
 ## Access Method 1: LoadBalancer Service
 
-The application can be exposed directly using a Kubernetes Service of type LoadBalancer.
+The application can be exposed directly using a Kubernetes Service of type LoadBalancer. For this purpose we will change the type to **LoadBalancer** from **ClusterIP** in service named **frontendproxy-service**
 
 Example:
 
