@@ -26,7 +26,7 @@
 
 ### Kubernetes Resources 
 
-<img src="Images/eks-apply.otel.PNG">
+<img src="Images/eks-apply-otel.PNG">
 
 <img src="Images/eks-deploy-svc-otel.PNG">
 
