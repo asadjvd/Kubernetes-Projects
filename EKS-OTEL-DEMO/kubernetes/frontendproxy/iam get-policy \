@@ -1,0 +1,51 @@
+{
+    "Role": {
+        "Path": "/",
+        "RoleName": "AmazonEKSLoadBalancerControllerRole",
+        "RoleId": "AROAV6REFAFLU7MMYW3RK",
+        "Arn": "arn:aws:iam::409171460439:role/AmazonEKSLoadBalancerControllerRole",
+        "CreateDate": "2026-05-30T17:33:19+00:00",
+        "AssumeRolePolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {
+                        "Federated": "arn:aws:iam::409171460439:oidc-provider/oidc.eks.us-east-1.amazonaws.com/id/A481AE83B86464134EDFDB88FF23F729"
+                    },
+                    "Action": "sts:AssumeRoleWithWebIdentity",
+                    "Condition": {
+                        "StringEquals": {
+                            "oidc.eks.us-east-1.amazonaws.com/id/A481AE83B86464134EDFDB88FF23F729:aud": "sts.amazonaws.com",
+                            "oidc.eks.us-east-1.amazonaws.com/id/A481AE83B86464134EDFDB88FF23F729:sub": "system:serviceaccount:kube-system:aws-load-balancer-controller"
+                        }
+                    }
+                }
+            ]
+        },
+        "Description": "",
+        "MaxSessionDuration": 3600,
+        "Tags": [
+            {
+                "Key": "alpha.eksctl.io/cluster-name",
+                "Value": "tf-eks-cluster"
+            },
+            {
+                "Key": "alpha.eksctl.io/iamserviceaccount-name",
+                "Value": "kube-system/aws-load-balancer-controller"
+            },
+            {
+                "Key": "alpha.eksctl.io/eksctl-version",
+                "Value": "0.225.0"
+            },
+            {
+                "Key": "eksctl.cluster.k8s.io/v1alpha1/cluster-name",
+                "Value": "tf-eks-cluster"
+            }
+        ],
+        "RoleLastUsed": {
+            "LastUsedDate": "2026-05-30T17:49:57+00:00",
+            "Region": "us-east-1"
+        }
+    }
+}
