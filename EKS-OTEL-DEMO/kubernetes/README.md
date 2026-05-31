@@ -40,8 +40,7 @@ kubernetes/
 ├── shipping/
 ├── valkey/
 ├── serviceaccount.yaml
-├── complete-deploy.yaml
-└── iam_policy.json
+└── complete-deploy.yaml
 ```
 
 Each microservice contains its own deployment and service manifests.
