@@ -78,6 +78,7 @@ Before deployment, ensure:
 
 * Amazon EKS cluster is operational
 * kubectl is configured
+* Eksctl is configured
 * Worker nodes are in Ready state
 * AWS Load Balancer Controller is installed (for Ingress deployments)
 
