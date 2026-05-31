@@ -34,7 +34,7 @@
 
 <img src="Images/ingress-resources.PNG">
 
-<img src="Images/ingress-alb">
+<img src="Images/ingress-alb.PNG">
 
 ---
 
@@ -42,11 +42,11 @@
 
 <img src="Images/hosts-file.PNG">
 
-<img src="Images/EKS-OTEL-Web-UI.PNG">
+<img src="Images/EKS-OTEL-Web-UI.png">
 
-<img src="Images/eks-otel-cart-ui.PNG">
+<img src="Images/eks-otel-cart-ui.png">
 
-<img src="Images/eks-otel-order-complete-ui.PNG">
+<img src="Images/eks-otel-order-complete-ui.png">
 
 <img src="Images/ingress-otel-web-ui.PNG">
 
