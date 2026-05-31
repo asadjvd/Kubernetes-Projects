@@ -149,7 +149,7 @@ A more production-oriented deployment uses the AWS Load Balancer Controller with
 #### Set Cluster Name:
 
 ```bash
-export cluster_name=demo-cluster
+export cluster_name=<cluster-name>
 ```
 
 This defines the EKS cluster name used in all following commands.
