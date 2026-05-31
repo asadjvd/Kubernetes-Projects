@@ -1,4 +1,4 @@
-# OpenTelemetry Demo Deployment on Amazon EKS
+# OpenTelemetry Demo Project Deployment on Amazon EKS 
 
 ## Overview
 
