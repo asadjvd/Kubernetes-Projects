@@ -115,7 +115,7 @@ kubectl get svc
 
 ## Access Method 1: LoadBalancer Service
 
-The application can be exposed directly using a Kubernetes Service of type LoadBalancer. For this purpose we will change the type to **LoadBalancer** from **ClusterIP** in service named **frontendproxy-service**
+The application can be exposed directly using a Kubernetes Service of type LoadBalancer. For this purpose we will change the service type to **LoadBalancer** from **ClusterIP** in service named **opentelemetry-demo-frontendproxy**
 
 Example:
 
@@ -126,12 +126,16 @@ spec:
   type: LoadBalancer
 ```
 
+```bash
+kubectl edit svc opentelemetry-demo-frontendproxy
+```
+
 Kubernetes provisions an AWS Load Balancer and assigns a public endpoint.
 
 Retrieve the external address:
 
 ```bash
-kubectl get svc
+kubectl get svc | grep frontendproxy
 ```
 
 Access the application using the generated DNS name.
