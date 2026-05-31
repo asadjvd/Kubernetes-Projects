@@ -386,11 +386,23 @@ kubectl get pods,svc,ingress -A
 
 ---
 
-Open the generated ALB DNS name in a browser.
+To access the web application get IP address that is resolved from ALB DNS name using following command:
+
+```bash
+nslookup <ALB-DNS-Name>
+```
+
+Once IP is acquired next map it to **example.com** which is defined in the Ingress file we had applied. The mapping of IP address would be done in hosts file present in C:\Windows\System32\drivers\etc on Windows.  
+
+---
 
 ## Cleanup
 
 Remove application resources:
+
+```bash
+kubectl delete -f frontendproxy/ingress.yaml
+```
 
 ```bash
 kubectl delete -f complete-deploy.yaml
@@ -399,7 +411,7 @@ kubectl delete -f complete-deploy.yaml
 Verify removal:
 
 ```bash
-kubectl get pods
+kubectl get pods,svc,ingress -A
 ```
 
 ## Skills Demonstrated
